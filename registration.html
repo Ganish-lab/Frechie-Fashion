@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Example</title>
+    <style>
+	
+	
+	  body {
+            text-align: center;
+            color: goldenrod;
+            background-image: url("#007bff");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-color: #59788E;
+            background-position: 5px 10px 15px 20px;
+            /* Center-align the content within the body */
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            background-color: #022D36;
+            background-position: 5px 10px 15px 20px;
+        }
+
+        nav {
+            text-align: center; /* Center-align the navigation bar */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: inline-block; /* Display the navigation links in a line */
+        }
+
+        nav ul li {
+            display: inline; /* Display the list items inline */
+            margin-right: 20px; /* Add some space between the list items */
+        }
+
+        nav ul li a {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            background-color: #ddd; /* Hover color for navigation links */
+            color: black;
+        }
+
+	
+	
+        body {
+            text-align: center;
+            color: white; /* Text color */
+            background-color: black; /* Background color */
+        }
+
+        h2 {
+            color: #007bff; /* Heading color */
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white; /* Form background color */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for form */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: black; /* Label text color */
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="tel"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #007bff; /* Border color */
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff; /* Submit button background color */
+            color: white; /* Submit button text color */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Hover color for submit button */
+        }
+
+        .animated-box {
+            width: 100px;
+            height: 100px;
+            background-color: #007bff;
+            position: relative;
+            animation: moveBox 2s infinite alternate; /* Apply animation */
+        }
+
+        @keyframes moveBox {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: calc(100% - 100px);
+            }
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var dob = document.getElementById('dob').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+            var phoneNumber = document.getElementById('phoneNumber').value;
+
+            // Validate username (only alphabetic characters, no spaces or numbers)
+            var usernameRegex = /^[a-zA-Z]+$/;
+            if (!username.match(usernameRegex)) {
+                alert("Username should contain only alphabetic characters");
+                return false;
+            }
+
+            // Validate date of birth
+            if (!isValidDate(dob)) {
+                alert("Invalid date of birth");
+                return false;
+            }
+
+            // Validate password strength
+            var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+            if (!password.match(passwordRegex)) {
+                alert("Password should contain at least 8 characters including uppercase, lowercase letters, numbers, and special characters");
+                return false;
+            }
+
+            // Confirm password match
+            if (password !== confirmPassword) {
+                alert("Passwords do not match");
+                return false;
+            }
+
+            // Validate phone number
+            var phoneNumberRegex = /^\d{10}$/; // Assuming 10-digit phone numbers
+            if (!phoneNumber.match(phoneNumberRegex)) {
+                alert("Invalid phone number");
+                return false;
+            }
+
+            // All validations passed
+            var selectedAccount = document.querySelector('input[name="account"]:checked');
+            var accountType = selectedAccount ? selectedAccount.value : "";
+            alert("You have successfully registered as " + accountType);
+            return true;
+        }
+
+        function isValidDate(dateString) {
+            var regex = /^\d{4}-\d{2}-\d{2}$/;
+            if(!regex.test(dateString)) return false;
+            var parts = dateString.split("-");
+            var year = parseInt(parts[0], 10);
+            var month = parseInt(parts[1], 10);
+            var day = parseInt(parts[2], 10);
+            if(month < 1 || month > 12) return false;
+            if(day < 1 || day > 31) return false;
+            if((month==4 || month==6 || month==9 || month==11) && day==31) return false;
+            if(month == 2) {
+                var leap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+                if(day>29 || (day==29 && !leap)) return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+ <nav>
+        <ul>
+            <li><a href="Homepage.html">Home</a></li>
+            <li><a href="registration.html">Registration</a></li>
+            <li><a href="shoes.html">Shoes</a></li>
+            <li><a href="clothing.html">Clothing</a></li>
+            <li><a href="Accesories.html">Accessories</a></li>
+        </ul>
+    </nav>
+
+
+
+<h2>Registration Form</h2>
+<form onsubmit="return validateForm()">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="text" id="dob" name="dob" placeholder="YYYY-MM-DD" required><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
+
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="tel" id="phoneNumber" name="phoneNumber" required><br><br>
+
+
+    <input type="submit" value="Submit">
+</form>
+
+<!-- Animated box -->
+<div class="animated-box"></div>
+
+</body>
+</html>
