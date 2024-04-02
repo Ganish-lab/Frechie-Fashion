@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frenchie Street</title>
+    <style>
+        body {
+            text-align: center;
+            color: white;
+            background-color: #022D36;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            margin-top: 20px;
+            color: goldenrod;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            background-color: #007bff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .container a {
+            color: goldenrod;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .container a:hover {
+            color: #ffd700;
+        }
+
+        main.clothing-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .clothing-item {
+            margin: 10px;
+            width: calc(33.33% - 20px); /* Adjust width to fit three items in a row */
+            position: relative;
+        }
+
+        .clothing-item img {
+            max-width: 100%;
+            height: auto;
+            border: 5px solid #007bff; /* Add stylish border */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow effect */
+        }
+
+        .clothing-item h2 {
+            color: #007bff;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .clothing-item:hover h2 {
+            opacity: 1;
+        }
+
+        p {
+            margin-top: 20px;
+        }
+
+        #locations,
+        #contactus {
+            border: 2px solid black; /* Add black border */
+            padding: 20px;
+            margin: 20px auto; /* Center align */
+            max-width: 800px; /* Limit width */
+            background-color: #007bff;
+            color: white;
+        }
+
+        #locations h2,
+        #contactus h2 {
+            margin-top: 0;
+        }
+
+        #locations p,
+        #contactus p {
+            margin: 10px 0;
+        }
+
+        footer {
+            margin-top: 20px;
+            background-color: #022D36;
+            color: white;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Frenchie Street</h1>
+    <!-- Registration and Login Prompt -->
+    <div class="registration-prompt">
+        <p>Welcome to Frenchie Street! Would you like to:</p>
+        <a href="registration.php">Register</a> or <a href="login.php">Login</a>
+    </div>
+</div>
+
+<nav>
+    <ul>
+        <li><a href="Homepage.html">Home</a></li>
+        <li><a href="shoes.html">Shoes</a></li>
+        <li><a href="clothing.html">Clothing</a></li>
+        <li><a href="Accesories.html">Accessories</a></li>
+    </ul>
+</nav>
+<hr>
+<main class="clothing-container">
+    <div class="clothing-item">
+        <a href="Clothing.html" class="photo-link"><img src="https://cdn-images.farfetch-contents.com/off-white-off_20188912_45525743_1000.jpg?c=3"
+                                                        alt="Clothing 1"></a>
+        <h2>Hoodies and Shirts</h2>
+    </div>
+    <div class="clothing-item">
+        <a href="Accesories.html" class="photo-link"><img
+                src="https://www-konga-com-res.cloudinary.com/w_400,f_auto,fl_lossy,dpr_3.0,q_auto/media/catalog/product/B/H/180209_1666903177.jpg"
+                alt="Clothing 2"></a>
+        <h2>Accessories</h2>
+    </div>
+    <div class="clothing-item">
+        <a href="Shoes.html" class="photo-link"><img
+                src="https://nb.scene7.com/is/image/NB/bbw550bh_nb_02_i?$pdpflexf2$&qlt=80&fmt=webp&wid=440&hei=440"
+                alt="Clothing 3"></a>
+        <h2>Shoes</h2>
+    </div>
+    <!-- Add more clothing items as needed -->
+</main>
+
+<hr>
+<p>Frenchie is an Online fashion store..<br>That aims at revolutionizing the Fashion Industry</p>
+<p style="color:red;">With mind-blowing offers</p>
+
+<div id="locations">
+    <h2>FASHION STORE LOCATIONS</h2>
+    <p>KISUMU (Naivas Super Market)<br>
+        Kimironko<br>
+        Kacyiru<br>
+        Kimihurura</p>
+</div>
+
+<div id="contactus">
+    <h2>CONTACT US</h2>
+    <p>+254740788529<br>
+        +250788483559<br>
+        Email: frenchiefashion@gmail.com</p>
+</div>
+
+<hr>
+<!-- Animated box -->
+<div class="animated-box"></div>
+
+<!-- Footer -->
+<footer>
+    <p>Copyright © 2024 frenchiefashioninfo.ke</p>
+</footer>
+
+</body>
+</html>
